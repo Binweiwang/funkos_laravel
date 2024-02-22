@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('funkos', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->unique();
+            $table->uuid('uuid');
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('imagen')->default('https://via.placeholder.com/150');
             $table->decimal('precio', 10, 2)->default(0);
             $table->integer('cantidad')->default(0);
-            $table->string('categoria_id');
+            $table->uuid('categoria_id')->references('id')->on('categorias');
             $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
