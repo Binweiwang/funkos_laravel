@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Categoria extends Model
 {
-    use HasFactory;
+    use HasUuids;
+    protected $fillable = ['nombre', 'is_deleted'];
     /**
      * @var string $table Nombre de la tabla en la base de datos
      */
     protected $table = 'categorias';
+
 
     /**
      * @param $nombre Nombre de la categoría
