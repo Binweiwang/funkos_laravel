@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FunkosTableSeeder::class,
             CategoriasTableSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
             ]);
     }
 }
