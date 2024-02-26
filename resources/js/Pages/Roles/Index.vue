@@ -20,7 +20,7 @@ defineProps({
 
 })
 const deleteRole = (id) => {
-  if (confirm('¿Estás seguro de eliminar esta funko?')) {
+  if (confirm('¿Estás seguro de eliminar esta usuario?')) {
     Inertia.delete(route('roles.destroy', id))
   }
 }
@@ -33,26 +33,26 @@ const deleteRole = (id) => {
         Roles
       </h2>
     </template>
-      {{ roles}}
     <div class="py-12">
       <div class="relative max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="p-6 bg-white border-b border-gray-200 background-size">
           <div class="justify-between">
             <Link :href="route('roles.create')"
                   class="text-white bg-indigo-500 hover:bg-indigo-600 py-2 px-4 rounded"
-                  v-if="$page.props.user.permissions.includes('create role')">Crear Role
+                  v-if="$page.props.user.permissions.includes('create role')">Crear usuario
             </Link>
 
             <ul role="list" class="divide-y divide-gray-100">
               <li v-for="role in roles" :key="role.id"
                   class="flex justify-between gap-x-6 py-5">
                 <div class="flex min-w-0 gap-x-4">
-                  <div class="flex items-center gap-x-4">
-                    <div class="flex flex-col min-w-0 flex-auto">
-                        <p class="text-sm leading-5 text-gray-500 truncate">id: {{ role.id }}</p>
-                        <p class="text-sm font-semibold leading-6 text-gray-900">{{ role.name }}</p>
+                    <div class="flex items-center gap-x-4">
+                        <div class="flex items-center min-w-0 flex-auto">
+                            <img :src="role.profile_photo_url" alt="role.name" class="h-10 w-10 rounded-full">
+                            <p class="text-sm font-semibold leading-6 text-gray-900 ml-2">{{ role.name }}</p>
+                        </div>
                     </div>
-                  </div>
+
                 </div>
                 <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                   <Menu as="div" class="relative inline-block text-left">

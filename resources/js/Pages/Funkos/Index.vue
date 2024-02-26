@@ -100,8 +100,7 @@ const deleteFunko = (id) => {
                           </MenuItem>
                         </div>
                         <div class="py-1"
-                             v-if="$page.props.user.permissions.includes('eliminar funko')">
-                            >
+                             v-if="$page.props.user.permissions.includes('delete funko')">
                           <MenuItem v-slot="{ active }">
                             <button @click="deleteFunko(funko.id)"
                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm text-red-600 w-full sm:text-left']">

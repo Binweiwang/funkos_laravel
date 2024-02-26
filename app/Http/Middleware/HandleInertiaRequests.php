@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Categoria;
+use App\Models\Funko;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,6 +42,9 @@ class HandleInertiaRequests extends Middleware
             // compartir roles y permisos
             'user.roles' => $request->user() ? $request->user()->roles->pluck('name') : [],
             'user.permissions' => $request->user() ? $request->user()->getPermissionsViaRoles()->pluck('name') : [],
+            // compartir categorias y funkos
+            'categorias' => Categoria::all(),
+            'funkos' => Funko::all(),
         ]);
     }
 }
