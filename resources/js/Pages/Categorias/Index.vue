@@ -89,15 +89,6 @@ const deleteCategoria = (id) => {
                                                     </MenuItem>
                                                 </div>
                                                 <div class="py-1"
-                                                     v-if="$page.props.user.permissions.includes('update category')">
-                                                    <MenuItem v-slot="{ active }">
-                                                        <Link :href="route('categorias.edit', categoria.id)"
-                                                              :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                            Cambiar Imagen
-                                                        </Link>
-                                                    </MenuItem>
-                                                </div>
-                                                <div class="py-1"
                                                      v-if="$page.props.user.permissions.includes('delete category')">
                                                     <MenuItem v-slot="{ active }">
                                                         <button @click="deleteCategoria(categoria.id)"

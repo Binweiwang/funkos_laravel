@@ -47,6 +47,7 @@ class CategoriaController extends Controller
     public function show(string $id)
     {
         //
+        return inertia('Categorias/Detail', ['categoria' => Categoria::find($id)]);
 
     }
 
